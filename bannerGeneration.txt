@@ -1,0 +1,179 @@
+#! /bin/bash
+
+#this script generates banner based on some command line options passed to the script
+
+usage()
+{
+echo "Usage:${0} -abd -t[TEXT]">&2
+echo "This script generates a banned based on the options and text passed by you">&2
+echo "-a changes the color of your banner">&2
+echo "-b changes the background color of your banner">&2
+echo "-d changes the design of your banner">&2
+echo "-t [TEXT] is the text that will be passed to the banner">&2
+exit 1
+}
+char_to_use="#"
+#defining FUNCTIONS TO PRINT character banners
+#use printf in these function to print the characters
+#note user can alos pass an option to use the character of their choice
+#UPPER CASE CHARA
+#defining some functions to display some color combinations
+color1()
+{
+tput setab 5
+tput setaf 2
+echo "Roopa ki maa ka bhosda"
+}
+color2()
+{
+tput setab 3
+tput setaf 1
+echo "Roopa ki maa ka bhosda"
+}
+color3()
+{
+tput setab 4
+tput setaf 1
+echo "Roopa ki maa ka bhosda"
+}
+color4()
+{
+tput setab 5
+tput setaf 2
+echo "Roopa ki maa ka bhosda"
+}
+color5()
+{
+tput setab 0
+tput setaf 1
+echo "Roopa ki maa ka bhosda"
+}
+color6()
+{
+tput setab 2
+tput setaf 7
+echo "Roopa ki maa ka bhosda"
+}
+color7()
+{
+tput setab 5
+tput setaf 6
+echo "Roopa ki maa ka bhosda"
+}
+normalColor()
+{
+tput setab 0
+tput setaf 7
+}
+#some banner design suggestion functions
+banner1()
+{
+echo "+--------------------------------------------------------------------------------------+"
+echo "|                       This is an example of using a banner                           |"
+echo "|                       This is the desgin 1 for our banner                            |"
+echo "|                       You can use this banner if you want                            |"
+echo "|                       OR YOU CAN SIMPLY FUCK OFF !!!                                 |"
+echo "+--------------------------------------------------------------------------------------+"
+}
+banner2()
+{
+echo "&@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@&"
+echo "#                       This is an example of using a banner                           #"
+echo "#                       This is the desgin 1 for our banner                            #"
+echo "#                       You can use this banner if you want                            #"
+echo "#                       OR YOU CAN SIMPLY FUCK OFF !!!                                 #"
+echo "&@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@&"
+}
+banner3()
+{
+echo "!######################################################################################!"
+echo "!                       This is an example of using a banner                           #"
+echo "!                       This is the desgin 1 for our banner                            #"
+echo "!                       You can use this banner if you want                            #"
+echo "!                       OR YOU CAN SIMPLY FUCK OFF !!!                                 #"
+echo "!######################################################################################!"
+}
+banner4()
+{
+echo "*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*"
+echo "$                       This is an example of using a bannerecho                       $"
+echo "$                       This is the desgin 1 for our banner                            $"
+echo "$                       You can use this banner if you want                            $"
+echo "$                       OR YOU CAN SIMPLY FUCK OFF !!!                                 $"
+echo "*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*"
+}
+
+
+#parsing the command line options
+while getopts :a:b:d:t OPTION
+do
+  case ${OPTION} in
+  a)
+   FOREGROUND="${OPTARG}"
+   echo "Setting the foregrond color to ${FOREGROUND}"
+   ;;
+ b)
+   BACKGROUND="${OPTARG}"
+   echo "Setting the background color to ${BACKGROUND}"
+   ;;
+ d)
+   DESIGN="${OPTARG}"
+   echo "Setting the design to ${DESIGN}"
+   ;;
+ t)
+   TEXT="${OPTARG}"
+   echo "This is the text that will be used ${TEXT}"
+   ;;
+ ?)
+  usage
+  ;;
+esac
+done
+
+
+#parsing through the command line options
+
+
+#changing the backgrond color
+#tput setab
+#changing the foreground color
+#tput setaf
+#this is the ansii code for the colors
+# 0 black
+# 1 red
+# 2 green
+# 3 yellow
+# 4 blue
+# 5 magenta
+# 6 cyan
+# 7 white
+#testing the color combination
+echo "This is a color combination demo"
+color1
+color2
+color3
+color4
+color5
+color6
+color7
+
+#setting the normal color at vvvvend
+normalColor
+#this are some banner examples
+echo "These are some banner examples" >&2
+echo
+banner1
+echo
+banner2
+echo
+banner3
+echo
+banner4
+
+#setting back the noraml colors
+normalColor
+#parsing the command line options
+
+
+
+
